@@ -46,7 +46,7 @@ An explicit silence beat (`[PAUSE Ns]`) in the Audio column where picture or sou
 The closing visual/audio beat that locks the payoff, product, and brand into memory.
 
 **Mute test**:
-Stripping every voiceover line and explanatory card from a script to verify that the core product claim survives in the Video column alone.
+Stripping all spoken audio (voiceover and dialogue) and explanatory cards from a script to verify that the core product claim survives in the Video column alone.
 
 **Focal entry**:
 The single visual element the viewer's eye lands on in the first half-second of a shot.

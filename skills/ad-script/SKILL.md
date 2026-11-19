@@ -1,45 +1,53 @@
 ---
 name: ad-script
-description: Write a timed three-column commercial script verified by the mute test and read-aloud budget. Use when turning an ad premise into a timed spot, writing a short-form video ad script, or auditing whether a script fits its runtime and works without voiceover.
+description: Three-column commercial script with read-aloud budget and mute test. Use when writing a timed video ad script from a brief or premise, or auditing a draft script for pacing and sound-off comprehension.
 ---
-
-Turn a chosen commercial premise into a timed **three-column script** whose picture proves the product without narration and whose words fit the exact runtime when read aloud.
 
 ## Process
 
-1. **Confirm the inputs.** Verify target runtime in exact seconds, the product and **single-minded proposition**, the chosen **dramatic situation**, and any tone or reference mechanisms. If the user wants concept options before committing to a script, call the Skill tool with `"ad-concepts"`. If the user gives a direct scripting request ("Write a 20-second ad for X"), commit to one sharp **product-locked** situation and proceed.
+1. **Lock inputs and route.**
+   - Premise options requested: call the Skill tool with `"ad-concepts"` and stop.
+   - Existing draft script supplied: read [`draft-audit.md`](./draft-audit.md) and run that workflow instead of steps 2 to 5.
+   - New script requested: ask once only if product or exact runtime is missing; when a direct brief omits a premise ("Write a 20-second ad for X"), commit to one **dramatic situation** passing the **swap test** and proceed.
+   - **Exit gate**: four inputs are locked before step 2: exact runtime in seconds, product with one **single-minded proposition** (secondary claims parked out of scope), one **product-locked** **dramatic situation**, and any tone or **transferable mechanisms**.
 
-2. **Build the visual spine first.** Lay out the beats from opening hook to **button** (the closing visual/audio landing that locks product and brand into memory) using only observable camera reality: physical actions, objects, expressions, and environment. Translate every internal feeling or product claim into visible physical evidence.
+2. **Build the timed visual spine first.**
+   - Populate `Time` and `Video` from opening hook through physical proof and **brand entry** to closing **button** before writing any spoken line.
+   - Express every emotion and product claim as camera-observable reality (physical actions, objects, facial reactions, environment, diegetic text).
+   - **Exit gate**: contiguous `MM:SS-MM:SS` beats sum strictly to target runtime with zero gaps or overlaps, every `Video` cell passes the camera-lens test (zero internal states, off-screen backstory, or abstract summaries), and physical proof plus **brand entry** land on or before the **button**.
 
-3. **Layer the Audio track.** Add dialogue, voiceover, sound effects (`SFX`), music cues, and explicit **earned pauses** (`[PAUSE 2s]`) where picture or sound carries the beat. Let audio add contrast, rhythm, or a twist around the picture rather than narrating what the **Video** column already shows.
+3. **Layer Audio as counterpoint.**
+   - Populate `Audio` (`## Format`) as **audio counterpoint**: every spoken line adds subtext, irony, rhythm, or a twist absent from `Video`. Replace any line that captions visible action with `SFX:` or an **earned pause** (`[PAUSE Ns]`).
+   - Place at least one **earned pause** or visual/SFX-only beat at the key reveal, reaction, or proof turn (omit only for declared patter).
+   - **Exit gate**: zero captioning lines remain, and every silence or reaction hold carries an explicit `[PAUSE Ns]` duration.
 
-4. **Audit the read-aloud budget.** Count every spoken word per beat and across the full spot against real speaking cadence:
-   - Baseline read speed: ~2.3 words/sec in English, ~2.0 words/sec in longer-word languages such as Russian or German (roughly 4.5 syllables/sec across languages). Slow down for dry, deadpan, or dramatic delivery; speed up only when rapid patter is a deliberate stylistic choice, and state the assumed pace.
-   - Subtract every `[PAUSE Ns]`, reaction hold, and SFX-only beat from available speaking time before checking word count.
-   - Cut words until every beat and the total spot read aloud comfortably inside the exact target runtime with zero rushing.
+4. **Audit the read-aloud budget.**
+   - Pick a delivery tier from `## Cadence` and verify spoken pace **per beat** and **across the full spot**:
+     - Count spoken words only (`VO:` and `CHARACTER:`); exclude cue labels, `SFX:`, `MUSIC:`, and parenthetical delivery notes.
+     - Subtract every `[PAUSE Ns]` and visual/SFX-only hold from beat duration to get net speaking seconds.
+     - Check both words/sec and syllable density against the declared tier.
+   - When any beat or total exceeds ceiling, cut spoken words while preserving **earned pauses**; adjust beat durations only when visual action needs more room.
+   - **Exit gate**: every beat and the full spot sit at or under the stated cadence ceiling, all **earned pauses** remain intact, and cumulative timestamps still match target runtime.
 
-5. **Run the mute test.** Strip every line of voiceover and explanatory on-screen copy. Write a **Mute Test** verdict directly beneath the script stating:
-   - What a viewer with sound muted still understands about the product from the **Video** column alone.
-   - Which details live only in Audio.
-   If the core product claim disappears on mute, rewrite the **Video** column until physical action carries the proof, then re-verify the **read-aloud budget**.
+5. **Run the mute test.**
+   - Strip all spoken audio (`VO:` and `CHARACTER:`) and explanatory supers or cards.
+   - Perform a blind read strictly of `Video` as written: state what a muted viewer learns about the product, cite the exact beat timecode(s) carrying physical proof, and separately list what lives only in `Audio`.
+   - **Exit gate**: the **single-minded proposition** is provable strictly from the cited `Video` beats (`Verdict: PASS`). If any part of the core claim depends on spoken audio or explanatory copy, rewrite `Video` so physical action carries the proof, then re-run step 4 before delivering.
 
-## Output format
+## Cadence
 
-1. **Header**: Product, single-minded proposition, exact target runtime, and assumed voice cadence.
-2. **Three-column script** as a Markdown table:
+- **Baseline conversational**: `<= 2.3 words/sec` in English, `<= 2.0 words/sec` in longer-word languages (Russian, German, etc.); `<= 4.5 syllables/sec` baseline ceiling across languages.
+- **Deadpan or dramatic**: `<= 1.8 words/sec` (EN) / `<= 1.6 words/sec` (longer-word languages).
+- **Deliberate patter**: up to `3.0 words/sec` (EN) / `2.6 words/sec` (longer-word languages); declare explicitly in Header.
+
+## Format
+
+1. **Header**: Product, **single-minded proposition**, exact runtime, **brand entry** timestamp, delivery cadence and wps ceiling.
+2. **Three-column script** (Markdown table):
 
 | Time | Video | Audio |
 | --- | --- | --- |
-| `0:00-0:03` | Observable screen action only | `VO:`, `CHARACTER:`, `SFX:`, `MUSIC:`, `[PAUSE Ns]` |
+| `0:00-0:03` | Camera-observable action | `VO:`, `CHARACTER:`, `SFX:`, `MUSIC:`, `[PAUSE Ns]` |
 
-3. **Read-aloud budget**: spoken words, pause/visual-only seconds, implied words/sec on speaking time, and pass/fail verdict.
-4. **Mute test**: step 5 verdict stating what survives visually without narration and confirming the core claim passes.
-
-When the user supplies an existing draft script to audit, run steps 4 and 5 against it first, report the exact overflows and mute-test gaps, and offer a tightened rewrite.
-
-## Done when
-
-- Cumulative timestamps in the **three-column script** match the target runtime to the exact second with no gaps or overflow.
-- Every **Video** cell describes observable camera reality.
-- The **read-aloud budget** math is explicit and fits comfortably with **earned pauses** preserved.
-- The **mute test** is included and passes: the core product claim survives from action alone.
+3. **Read-aloud budget**: per-beat lines (`0:00-0:03: 4w / 2.0s = 2.0 wps, [PAUSE 1s]` or `[visual/SFX only]`) plus totals (`spoken words`, `pause/visual-only sec`, `net speaking sec`, `overall wps`, `Verdict: PASS`).
+4. **Mute test**: `Visual-only read` (citing proof beat timecodes), `Audio-only layer`, `Verdict: PASS`.
