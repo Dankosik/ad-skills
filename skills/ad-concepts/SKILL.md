@@ -1,35 +1,38 @@
 ---
 name: ad-concepts
-description: Generate orthogonal, product-locked commercial premises before scripting. Use when brainstorming ad ideas, choosing which product property to dramatize, or exploring distinct angles for a brief.
+description: Develop product-locked, orthogonal commercial premises before scripting. Use when brainstorming distinct ad angles for a brief, narrowing a multi-benefit brief to one dramatizable property, or swap-testing existing ad ideas.
 ---
-
-Explore genuinely different commercial premises before committing to a script. Each concept proves one product property through a filmable human situation that only this product can resolve.
 
 ## Process
 
-1. **Lock the brief.** Establish three facts from the conversation or any reference brief produced by `ad-references` (ask only for what is missing):
-   - **Audience and tension**: who the spot speaks to and the exact moment they feel the friction or desire.
-   - **Single-minded proposition**: the one product property worth proving in this spot. When the brief carries multiple benefits, push to pick one per spot and park the rest for separate spots.
-   - **Constraints**: target runtime and any tone or **transferable mechanisms** already chosen.
+1. **Lock the brief.** Extract three inputs from the conversation or an `ad-references` brief:
+   - **Audience and tension**: who the spot speaks to and the exact triggering moment of friction or desire.
+   - **Single-minded proposition**: one observable, ownable product truth (physical property, mechanism, or distinctive product/brand constraint) to prove in this spot. Park additional benefits for separate spots.
+   - **Constraints**: target runtime (state an explicit default if unspecified), mandatory elements, and any chosen **transferable mechanisms** from `ad-references`.
+   - **Gate**: when the ownable product truth is missing or a multi-benefit brief has no chosen proposition, ask only for that decision and pause before step 2.
 
-2. **Generate 4 to 5 orthogonal concepts.** Build each candidate around a concrete, filmable **dramatic situation** where the product's property proves itself in action rather than through a slogan or feature list. Force every concept in the set to run on a different dramatic engine (for example: literal physical proof, escalating mishap, role reversal, deadpan understatement, unexpected arena, quiet before/after contrast). Stay strictly at premise level: hold dialogue, voiceover, and shots for scripting.
+2. **Build 4 to 5 orthogonal premises.** Ground each candidate in a concrete **dramatic situation** where physical action proves the locked **single-minded proposition** visually, incorporating any chosen **transferable mechanisms**. Size each premise's beat economy to the target runtime (single visual turn for 6s bumpers, one setup and payoff for 15s, room to escalate for 30s+). Place every candidate at a distinct coordinate across **dramatic engine**, physical proof mechanic, and arena/POV, replacing first-order category clichés with unexpected proof setups. Keep every candidate strictly at premise level, deferring dialogue, voiceover, and shots to `ad-script`.
 
-3. **Run the swap test on every concept.** Substitute a generic competitor or an adjacent product into the situation. If the premise still holds together, it fails: either rebuild the physical action tightly around this product's specific property, or kill the concept and generate a replacement. Every survivor must be **product-locked**.
+3. **Run an adversarial swap test.** For each candidate, substitute both the closest direct category competitor (packshot swap) and an adjacent substitute, then identify the exact on-screen physical beat that breaks without this product. Any premise that still holds fails: rebuild its physical action tightly around the locked proposition, or kill it and generate a replacement verified against both step 2 orthogonality and this swap test. Proceed only with 4 to 5 **product-locked** survivors.
 
-4. **Present the cards and make a call.** Present each surviving concept in the fixed card format below. Close with an opinionated recommendation naming the strongest 1 to 2 candidates and why, plus any hybrid worth testing.
+4. **Present the set and make a decisive call.** Deliver the output below, closing with one #1 pick (plus at most one runner-up only if it serves a materially different strategic or production trade-off). Justify the ranking on **swap test** lock strength, proof immediacy, runtime beat economy, and the primary execution risk of the #1 pick. Stop for user selection before moving to `ad-script`.
 
-## Concept card format
+When the user supplies existing ad ideas, lock the brief in step 1, run step 3 and an orthogonality check against those candidates first, report each failure or overlap, and offer rebuilt replacements.
 
-- **Title**: short handle for referring to the premise.
-- **One-sentence pitch**: what happens on screen, in one concrete visual sentence anyone can retell.
-- **Audience and tension**: who recognizes themselves here and why.
-- **Product proof**: the single property demonstrated through action.
-- **Product lock**: why the situation collapses if you swap in a different product.
-- **Engine and runtime fit**: the dramatic mechanism and why it breathes inside the target length.
+## Output format
+
+1. **Brief lock**: compact 3-line summary of the inputs locked in step 1.
+2. **Concept cards** (4 to 5 survivors):
+   - **Title**
+   - **One-sentence pitch**: observable visual setup, turn, and product payoff in one retellable sentence.
+   - **Visual proof**: the exact on-screen action proving the locked proposition.
+   - **Swap test**: named closest direct competitor or adjacent substitute, and the physical beat that breaks.
+   - **Dramatic engine and beat economy**: engine name, applied **transferable mechanism** (if any), and beat pacing inside target runtime.
+3. **Recommendation**: ranked call from step 4.
 
 ## Done when
 
-- Every concept passes the **swap test** with an explicit **product lock** explanation.
-- Every concept reduces cleanly to a **one-sentence pitch** and proves a **single-minded proposition**.
-- Every concept in the set runs on a distinct dramatic engine rather than varying the same gag or setting.
-- An opinionated recommendation closes the set, stopping at premise cards for user selection.
+- All 4 to 5 survivors prove the same locked **single-minded proposition** across distinct **dramatic engines**, proof mechanics, and arenas.
+- Every card's **Swap test** names a closest direct competitor or adjacent substitute and the specific physical beat that breaks.
+- Every premise reduces to a concrete **one-sentence pitch**, fits the target runtime's beat economy, and stays at premise level.
+- One decisive #1 pick closes the set with its primary execution risk named, stopping for user selection.

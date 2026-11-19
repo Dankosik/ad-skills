@@ -24,11 +24,14 @@ The one product property a commercial commits to proving. A second property belo
 **Dramatic situation**:
 A concrete, filmable human moment where the product's property proves itself through action rather than explanation.
 
+**Dramatic engine**:
+The structural attention and tension-and-payoff device driving a spot or commercial premise (for example: deadpan contrast, escalating mishap, misdirection, literal physical demonstration, role reversal, understatement; distinct from a **transferable mechanism**, which is a concrete screen/audio execution move).
+
 **Product-locked**:
-A premise whose **dramatic situation** breaks if you substitute a competitor or an adjacent product.
+A premise whose **dramatic situation** breaks physically if you substitute the closest direct competitor or an adjacent product.
 
 **Swap test**:
-The check for whether a concept is **product-locked**: swap the product out and inspect whether the situation still works.
+The adversarial check for whether a concept is **product-locked**: substitute the closest direct competitor (packshot swap) or an adjacent product and verify which physical beat breaks.
 
 **One-sentence pitch**:
 A complete commercial premise stated in one concrete, visual sentence anyone can retell.
@@ -63,6 +66,6 @@ The specific failure mode flagged on a complex shot (grip, physics, legible text
 ## Relationships
 
 - `ad-references` dissects **primary spots** into **timecoded beats**, **brand entry** notes, and **transferable mechanisms**.
-- `ad-concepts` turns a brief (and optional mechanisms) into orthogonal **dramatic situations** verified by the **swap test**.
+- `ad-concepts` turns a brief (and optional **transferable mechanisms**) into orthogonal **dramatic situations** running on distinct **dramatic engines**, verified by the **swap test**.
 - `ad-script` turns a chosen premise into a **three-column script** verified by the **read-aloud budget** and **mute test**.
 - `ad-storyboard` turns a **three-column script** into numbered shots (`S01`, `S02`, ...) bound by a **Continuity lock** and flagged with **test-take checks** where risk lives.
