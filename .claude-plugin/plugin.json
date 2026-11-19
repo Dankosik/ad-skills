@@ -1,0 +1,27 @@
+{
+  "name": "ad-skills",
+  "version": "0.1.0",
+  "description": "Agent skills for developing short-form video ads: reference dissection, product-locked concepts, mute-tested scripts, and continuity-locked storyboards.",
+  "author": {
+    "name": "Daniil Koryto",
+    "url": "https://github.com/Dankosik"
+  },
+  "homepage": "https://github.com/Dankosik/ad-skills",
+  "repository": "https://github.com/Dankosik/ad-skills",
+  "license": "MIT",
+  "keywords": [
+    "advertising",
+    "commercials",
+    "copywriting",
+    "screenwriting",
+    "storyboard",
+    "video-production",
+    "skills"
+  ],
+  "skills": [
+    "./skills/ad-references",
+    "./skills/ad-concepts",
+    "./skills/ad-script",
+    "./skills/ad-storyboard"
+  ]
+}

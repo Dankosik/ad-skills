@@ -1,0 +1,20 @@
+{
+  "name": "ad-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent skills for developing short-form video ads: reference dissection, product-locked concepts, mute-tested scripts, and continuity-locked storyboards.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dankosik/ad-skills"
+  },
+  "license": "MIT",
+  "scripts": {
+    "check-frontmatter": "node scripts/check-frontmatter.mjs",
+    "check-plugin-version": "node scripts/sync-plugin-version.mjs --check",
+    "sync-plugin-version": "node scripts/sync-plugin-version.mjs",
+    "check": "npm run check-frontmatter && npm run check-plugin-version"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.0"
+  }
+}

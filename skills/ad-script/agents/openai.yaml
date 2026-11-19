@@ -1,0 +1,3 @@
+interface:
+  display_name: "Ad Script"
+  short_description: "Write a timed three-column script passing mute and read-aloud tests"

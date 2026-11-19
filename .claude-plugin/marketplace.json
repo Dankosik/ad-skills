@@ -1,0 +1,24 @@
+{
+  "name": "dankosik",
+  "owner": {
+    "name": "Daniil Koryto",
+    "url": "https://github.com/Dankosik"
+  },
+  "description": "Agent skills for short-form commercial development.",
+  "plugins": [
+    {
+      "name": "ad-skills",
+      "source": "./",
+      "description": "Agent skills for developing short-form video ads: reference dissection, product-locked concepts, mute-tested scripts, and continuity-locked storyboards.",
+      "category": "creative",
+      "keywords": [
+        "advertising",
+        "commercials",
+        "copywriting",
+        "screenwriting",
+        "storyboard",
+        "skills"
+      ]
+    }
+  ]
+}
