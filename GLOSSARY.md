@@ -52,16 +52,16 @@ The closing visual/audio beat that locks the payoff, product, and brand into mem
 Stripping all spoken audio (voiceover and dialogue) and explanatory cards from a script to verify that the core product claim survives in the Video column alone.
 
 **Focal entry**:
-The single visual element the viewer's eye lands on in the first half-second of a shot.
+The single visual element and frame zone the viewer's eye lands on in the first half-second of a shot.
 
 **Continuity lock**:
-Top-level cross-shot invariants (product appearance/scale, lighting direction/palette, location geography/wardrobe/180-degree axis) inherited by every shot in a storyboard.
+Top-level cross-shot invariants (product appearance/scale, lighting direction/palette, location layout/cast/active hand/180-degree axis) inherited by every shot in a storyboard.
 
-**Cut-on-action**:
-A cut motivated by a physical movement, eyeline shift, or audio beat rather than an arbitrary timer.
+**Motivated cut**:
+A cut triggered by a physical movement (**cut-on-action**), an **eyeline match**, or an audio cue (**J-cut**, **L-cut**, or SFX beat) rather than an arbitrary timer.
 
 **Test-take check**:
-The specific failure mode flagged on a complex shot (grip, physics, legible text, reflection, comic timing) to verify in a short trial take before committing.
+The specific failure mode and observable pass check flagged on a risky shot (grip, physics, legible text, reflection, comic timing, multi-subject blocking) to verify in a short trial take before committing.
 
 ## Relationships
 

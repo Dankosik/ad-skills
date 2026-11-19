@@ -1,46 +1,46 @@
 ---
 name: ad-storyboard
-description: Break a commercial script into a shot-by-shot storyboard with start/end frames, cut triggers, continuity locks, and test-take checks. Use when planning how to shoot or generate a script, turning a script into a shot list, or auditing visual continuity across cuts.
+description: Storyboard a commercial script into a continuity-locked shot list for filming or video generation. Use when turning a timed script into numbered shots, or auditing visual continuity across cuts in an existing shot list.
 ---
-
-Turn a timed commercial script into a shootable shot list where every framing choice directs viewer attention, every cut is motivated, adjacent shots stay visually locked, and risky shots carry an explicit **test-take check**.
 
 ## Process
 
-1. **Audit the script.** Read the timed **three-column script** and map exact runtime, story turns, product proof beats, and audio anchors. If the user brings only an untimed idea, offer to lock a timed script first (call the Skill tool with `"ad-script"` if they agree).
+1. **Gate the input and map script constraints.**
+   - **Untimed idea**: stop here and offer to lock a timed script first (invoke `ad-script`, via the Skill tool when available, if the user agrees). Proceed only once a timed script exists or the user explicitly overrides to storyboard from rough beats.
+   - **Existing shot list**: extract the implicit **Continuity lock** from the supplied shots, then jump to steps 4 and 5 to report exact seam breaks, runtime errors, and unflagged hazards before offering a repaired shot list.
+   - **Timed script**: extract exact target runtime (`0:00-0:XX`), **brand entry**, product proof beats, **earned pauses** (`[PAUSE Ns]`), and closing **button**; resolve any missing timestamps, duration mismatches, or unfilmable Video lines before step 2.
 
-2. **Establish the Continuity Lock.** Before numbering shots, fix the cross-shot invariants once at the top so every shot inherits a single source of truth:
-   - **Product lock**: exact physical appearance, finish/label orientation, scale relative to hands or props, and hero angle.
-   - **Lighting and palette lock**: key light direction (screen left, right, overhead, back), light quality, color temperature, and palette anchors.
-   - **Space and axis lock**: location layout, character wardrobe, starting positions, screen direction, and 180-degree eyeline axis.
+2. **Establish the Continuity lock.** Fix all three cross-shot invariants once at the top using concrete physical anchors verifiable on a single frame:
+   - **Product**: physical form, finish, label/logo facing, scale against hands or props, and hero angle.
+   - **Lighting and palette**: fixed key light side (`screen left`, `screen right`, `overhead`, or `back`), light quality (hard/soft), color temperature, and palette anchors.
+   - **Space, cast, and axis**: location layout, cast markers (wardrobe, hair, accessories, active hand), screen-left/screen-right starting positions, screen direction, and **180-degree axis**.
 
-3. **Break the script into numbered shots (`S01`, `S02`, ...).** Divide the exact script runtime into shots governed by three directorial rules:
-   - **Lead the eye**: name the single **focal entry** the viewer notices in the first half-second; save close-ups and inserts for moments where physical detail carries the proof or turn.
-   - **Earn every camera move**: default to a static hold whenever action inside the frame carries the beat; state the explicit reveal or pacing reason for any pan, push, or tracking move.
-   - **Cut on motivation**: place each cut on a physical movement (**cut-on-action**), an eyeline shift, or an audio cue, shifting shot size or angle cleanly across adjacent cuts.
+3. **Break beats into numbered shots (`S01`, `S02`, ...)** following `Output format` below. Give each distinct visual beat or reaction its own shot, decoupled from script row boundaries, governed by four craft rules:
+   - **Focal entry and eye-trace**: name the single element and frame zone the eye hits in the first half-second, placing the next shot's **focal entry** near the outgoing `End frame` focus unless deliberately jolting attention. Reserve `CU`/`ECU`/`Insert` for physical proof or turns.
+   - **Observable keyframe continuity**: write `Start frame`, `Action`, and `End frame` strictly in observable camera reality so each following `Start frame` picks up the exact physical state left by the previous `End frame` and `Cut trigger`.
+   - **Earned camera moves**: default to a static hold whenever in-frame action carries the beat; state the specific reveal or pacing job for every pan, push, or tracking move.
+   - **Motivated cuts and 30-degree rule**: cut on a **motivated cut** (**cut-on-action**, **eyeline match**, or **audio cut** / **J-cut** / **L-cut**), changing shot scale (`WS`/`MS`/`MCU`/`CU`/`ECU`/`Insert`) or shifting camera angle by at least 30 degrees across consecutive shots of the same subject (reserve jump cuts for explicit comedic or kinetic beats).
+   Map every script second, spoken line, `SFX`, and `[PAUSE Ns]` verbatim into `Audio sync` before step 4.
 
-4. **Mark complex shots with a test-take check.** On any shot carrying execution risk (hand-to-product grip, liquid or physics motion, legible packaging or screen text, reflections, tight comic timing, multi-subject blocking), add a **Test-take check** naming the exact failure mode to verify in a short trial take before committing. Omit this field on straightforward static holds so flags stay high-signal.
+4. **Flag risky shots with a test-take check.** Attach a **test-take check** exclusively to shots carrying execution risk (hand-to-product grip, liquid or physics motion, legible label or UI text, reflections, tight comic timing, multi-subject blocking), naming both the exact failure mode and the observable pass check for a short trial take. Leave routine shots unflagged so every check stays high-signal.
 
-5. **Run a cut-by-cut continuity pass.** Walk every adjacent seam (`S01 -> S02`, `S02 -> S03`, ...) before finalizing: verify shot durations sum strictly to the target runtime, check that product appearance, light side, wardrobe, active hand, and screen direction hold across every cut, and confirm that product proof and the closing **button** hold long enough to read cleanly.
+5. **Run a cut-by-cut continuity audit and repair breaks.** Walk every adjacent seam (`S01 -> S02`, `S02 -> S03`, ...):
+   - Sum shot durations explicitly (`S01 + S02 + ... = target`) with contiguous timestamps matching the exact target runtime, and verify spoken lines fit inside their spanning shot durations.
+   - Audit every seam against the **Continuity lock** (product state/label, key light side, cast/wardrobe, active hand, screen direction, **180-degree axis**), **30-degree rule**, and `End frame -> Start frame` physical handoff.
+   - Confirm product proof and the closing **button** hold long enough to read cleanly (at least 1.5-2.0s on legible packaging or copy, matching the script beat).
+   - Repair any failing shot directly in the shot list before finalizing so every seam passes.
 
 ## Output format
 
-1. **Continuity Lock**: the three cross-shot locks established in step 2.
-2. **Shot list**: numbered entries (`S01`, `S02`, ...), each containing:
-   - **Shot header**: `S01 | 0:00-0:03 (3.0s) | Shot size, angle, camera (static hold or motivated move)`
-   - **Focal entry**: the first element the viewer's eye hits
-   - **Start frame**: exact visual composition when the shot opens
-   - **Action**: observable movement and performance across the shot
-   - **End frame**: exact visual state on the outgoing cut
-   - **Cut trigger**: physical motion, eyeline, or audio cue launching the next shot
-   - **Audio sync**: exact VO, dialogue, SFX, or `[PAUSE]` aligned to this shot
-   - **Continuity carry**: specific props, hand, light side, or eyeline carried across neighbors
-   - **Test-take check** *(complex shots only)*: exact failure mode to inspect in a trial take
-3. **Cut-by-cut continuity audit**: short check confirming total duration matches the script runtime and flagging the highest-risk seams.
-
-## Done when
-
-- Shot durations cover every second of the script and sum strictly to the target runtime.
-- A top-level **Continuity Lock** fixes product, lighting/palette, and space/axis invariants.
-- Every shot defines **focal entry**, **start frame**, **end frame**, **cut trigger**, and **audio sync**, with every camera move explicitly motivated.
-- Every risky shot carries a concrete **test-take check**, and the cut-by-cut audit clears every adjacent seam.
+1. **Continuity Lock**: the three locks from step 2.
+2. **Shot list**: numbered entries (`S01`, `S02`, ...):
+   - **Header**: `S01 | 0:00-0:03 (3.0s) | Shot scale, angle, camera (static hold or motivated move + job)`
+   - **Focal entry**: element and frame zone
+   - **Start frame**: opening visual state
+   - **Action**: observable movement across the shot
+   - **End frame**: outgoing visual state on the cut
+   - **Cut trigger**: **motivated cut** type and exact cue
+   - **Audio sync**: verbatim VO/dialogue (with J-cut/L-cut carry), `SFX`, or `[PAUSE Ns]`
+   - **Continuity carry**: active hand, prop state, light side, and eyeline/screen direction bridged across neighbors
+   - **Test-take check** *(risky shots only)*: failure mode + observable pass check
+3. **Cut-by-cut continuity audit**: explicit duration arithmetic (`S01 + S02 + ... = target`), one line per adjacent seam (`S01 -> S02`, ...) confirming lock compliance and handoff, proof/button hold verification, and highest-risk seams.
