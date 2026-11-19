@@ -12,8 +12,8 @@ _Avoid_: "inspiration", "vibe reference", unverified examples from listicles.
 A concrete window (`MM:SS-MM:SS`) inside a **primary spot** pairing what appears on screen with what happens on the audio track.
 
 **Transferable mechanism**:
-A reusable craft move extracted from a **primary spot** and stated in observable screen/audio terms (for example, holding three seconds of silence after a question so action delivers the answer).
-_Avoid_: mood adjectives ("cinematic", "punchy", "nostalgic", "witty") without the physical mechanism behind them.
+A reusable cause-and-effect craft rule extracted from a **primary spot** and stated in observable screen/audio terms (for example, holding three seconds of silence after a question so action delivers the answer).
+_Avoid_: mood adjectives ("cinematic", "punchy", "nostalgic", "witty") and spot-specific plot recaps that break when the original brand is stripped out.
 
 **Brand entry**:
 The exact timestamp and narrative setup that brings the product and brand into a commercial for the first time.

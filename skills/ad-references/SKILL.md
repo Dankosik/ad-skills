@@ -1,43 +1,38 @@
 ---
 name: ad-references
-description: Dissect real commercials into links, timecoded beats, and transferable mechanisms. Use when finding ad references, studying an era or style of commercial, or breaking down how existing spots handle pacing, voiceover, humor, product proof, or brand entry.
+description: Dissect real commercials into timecoded beats and transferable mechanisms. Use when sourcing ad references for a brief, era, or style, or analyzing existing aired spots.
 ---
-
-Find real commercials and break them down into concrete, reusable craft mechanisms that a concept writer, screenwriter, or director can build on.
 
 ## Process
 
-1. **Lock the research angle.** Confirm the target style, era, market, category, runtime band, and the specific craft question the spots must answer. When the brief names a broad umbrella (such as "retro commercials" or "deadpan ads"), ask only the questions that narrow the search, or deliberately split the set across distinct sub-eras and schools so they never blur into one generic mood.
+1. **Lock the research angle.** Confirm the specific craft question, scope (era, market, category, runtime band as applicable), and target set size (default 4 to 6 **primary spots**, or the exact spots the user named). When the request names a broad umbrella (such as "retro commercials" or "deadpan ads"), partition the set into named contrasting sub-eras or craft schools; ask at most 2 to 3 targeted questions only when missing scope would misdirect the search.
+   **Done when:** the craft question is specific enough to disqualify off-angle spots, and any umbrella style is split into named contrasting schools.
 
-2. **Hunt primary spots.** Search for actual aired or published commercials in primary footage and verified ad archives (YouTube, Vimeo, Internet Archive, AdForum, Clio, Cannes Lions, Muse by Clio, Ad Age). When your harness supports subagents, delegate broad discovery to a background subagent started with a fresh context window so search noise stays out of the main thread. Trace every mention in an article or listicle back to an actual viewable spot; drop any spot you cannot verify as real.
+2. **Source and verify primary spots.** Locate aired or published **primary spots** in primary video and ad archives (YouTube, Vimeo, Internet Archive, AdForum, Clio or Cannes archives), tracing any trade-press or listicle lead back to a viewable primary URL across every locked sub-school. For broad discovery, when your harness supports subagents, delegate search to a subagent started with a fresh context window returning verified candidate URLs, year and runtime, and a one-line fit note.
+   **Done when:** every spot in the working set covers the locked craft question and sub-schools with a primary URL retrieved and verified in this session (drop unverified leads; never cite spots from memory, and stop to report a blocker if web lookup is unavailable).
 
-3. **Dissect each spot across five craft axes.** Inspect the primary source (transcript, frame breakdown, archived script, or playback notes) and record concrete observations across:
+3. **Inspect primary evidence and dissect each spot.** Examine an observable timeline for each **primary spot** (video or frame inspection, timed transcript or captions, or archived shot-by-shot script). If the primary URL exposes no readable timeline, search for an inspectable copy or transcript first; when none is reachable, cite beat order tagged `[unverified timecode]` and never invent clock seconds. Dissect each spot across **brand entry** (exact `MM:SS` and narrative setup introducing product and brand), 2 to 4 **timecoded beats** (`MM:SS-MM:SS` pairing seen and heard), and four craft axes:
    - **Voice and delivery**: announcer cadence, dialogue versus voiceover, and deliberate silence.
-   - **Pacing and rhythm**: cut cadence, beat length, and where the tempo accelerates or holds still.
-   - **Humor or tension engine**: the exact structural device driving attention (deadpan contrast, escalation, misdirection, literal demonstration, understatement).
-   - **Product proof**: how the product's property appears in observable physical action.
-   - **Brand entry**: the exact timestamp and setup that introduces the product and brand.
+   - **Pacing and rhythm**: cut cadence, beat length, and where tempo accelerates or holds still.
+   - **Dramatic engine**: structural attention device (deadpan contrast, escalation, misdirection, literal demonstration, understatement).
+   - **Product proof**: observable physical action demonstrating the product's property.
+   **Done when:** every claim rests on inspected primary evidence (or explicit `[unverified timecode]` markers), and every observation names a physical screen or audio choice (framing, action, cut timing, cadence, sound, silence) with zero mood adjectives ("cinematic", "punchy", "witty", "nostalgic") standing in for craft.
 
-4. **Extract a transferable mechanism per spot.** Distill one concrete craft move per commercial, anchored to a **timecoded beat** (for example: *"0:08-0:11: After the rhetorical question, the announcer drops silent for three seconds while the viewer sees the answer in action"*). State every observation in physical screen and audio terms; replace mood adjectives ("cinematic", "punchy", "witty", "nostalgic") with the concrete choice that creates that feeling.
+4. **Extract a transferable mechanism per spot.** Distill one **transferable mechanism** per **primary spot** as a cause-and-effect rule (`setup -> observable screen/audio choice -> viewer effect`), anchored to a **timecoded beat** (for example: *"0:08-0:11: After a rhetorical question, drop VO silent for 3 seconds while physical action delivers the answer"*).
+   **Done when:** stripping the original brand and storyline leaves an actionable rule that works directly on a different product.
 
-5. **Synthesize the playable takeaways.** Close with a brief synthesis separating the craft rules that distinguish the sub-styles in your set, and pick 2 to 3 **transferable mechanisms** best suited to the user's brief.
+5. **Synthesize craft contrasts and picks.** Contrast the sub-eras or craft schools in your set (or the core pattern versus sharpest outlier in a single-school set) by measurable craft differences (**brand entry** timing, cut cadence, VO density, or **product proof** method). Select 2 to 3 **transferable mechanisms** with a concrete adaptation note for the user's brief (or modern reuse when researching a style without a product brief).
+   **Done when:** every sub-school (or outlier) is separated by measurable craft differences, and every selected mechanism carries an adaptation note ready for `ad-concepts` or `ad-script`.
 
 ## Output format
 
-For each spot, deliver one compact entry:
+Deliver one compact entry per verified **primary spot**, then close with **Synthesis**:
 
-- **Spot**: Brand, title, year, runtime, and verified URL
-- **Brand entry**: `MM:SS` and how the product/brand arrives
-- **Timecoded beats**: 2 to 4 concrete `MM:SS-MM:SS` moments pairing what is seen with what is heard
-- **Craft breakdown**: tight notes on voice, pacing, engine, and product proof
-- **Transferable mechanism**: one stealable screen/audio rule
+- **Spot**: Brand, title, year, runtime, verified URL
+- **Brand entry**: `MM:SS` + setup
+- **Timecoded beats**: 2 to 4 `MM:SS-MM:SS` rows (`Seen | Heard`)
+- **Craft breakdown**: voice/delivery, pacing/rhythm, **dramatic engine**, product proof
+- **Transferable mechanism**: beat anchor + reusable craft rule
+- **Synthesis** *(once at the end)*: sub-school craft contrasts + 2 to 3 adapted picks
 
-When a verified source does not expose exact seconds, search for an inspectable copy first; if none is reachable, mark the timestamp `[approx]` or `[unverified timecode]` explicitly rather than guessing.
-
-When working inside a project directory, save the completed brief as a Markdown file matching the repo's notes convention (or ask once where to save it). Otherwise present it inline.
-
-## Done when
-
-- Every entry is a verified **primary spot** with a real link.
-- Every entry names **brand entry**, at least one **timecoded beat**, and a concrete **transferable mechanism** written in observable screen/audio terms.
-- Distinct periods or craft schools stay separated in the synthesis rather than collapsed into a single mood label.
+When working in a campaign workspace with a notes convention (or when the user asks to save), write the brief as a Markdown file there; otherwise present it inline.
